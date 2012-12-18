@@ -91,11 +91,6 @@ if not hasattr(ET, 'XMLParser'):
     ET.XMLParser = XMLParser
 
 def namespace_map_update(namespaces):
-    #try:
-    #    from xml.etree import ElementTree
-    #except ImportError:
-    #    from elementtree import ElementTree
-
     elementtree.ElementTree._namespace_map.update(namespaces)
 
 class ElementInterface(elementtree.ElementTree._ElementInterface):
