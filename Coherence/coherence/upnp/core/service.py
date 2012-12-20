@@ -277,6 +277,8 @@ class Service(log.Loggable):
             if var_name == 'LastChange':
                 self.info("we have a LastChange event")
                 self.get_state_variable(var_name, 0).update(var_value)
+                if len(var_value) == 0:
+                    continue
                 tree = utils.parse_xml(var_value, 'utf-8').getroot()
                 namespace_uri, tag = tree.tag[1:].split( "}", 1)
                 for instance in tree.findall('{%s}InstanceID' % namespace_uri):
